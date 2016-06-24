@@ -9,7 +9,7 @@
     <ProjectGuid>{4C235092-820C-4DEB-9074-D356FB797D8B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Org.BouncyCastle</RootNamespace>
-    <AssemblyName>BouncyCastle</AssemblyName>
+    <AssemblyName>BouncyCastle.Crypto</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
