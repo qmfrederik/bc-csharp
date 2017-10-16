@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard1.3;net45</TargetFrameworks>
+    <AssemblyName>CoreCompat.BouncyCastle</AssemblyName>
+    <VersionPrefix>1.8.1</VersionPrefix>
+    <RootNamespace>crypto</RootNamespace>
+    <AssemblyOriginatorKeyFile>..\..\BouncyCastle.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <Product>Bouncy Castle for .NET ($(TargetFramework))</Product>
+    <Copyright>Copyright (C) 2000-2017</Copyright>
+    <Company>The Legion of the Bouncy Castle Inc.</Company>
+    <Description>Bouncy Castle Cryptography API</Description>
+    <DebugType>embedded</DebugType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591;618;672</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <DefineConstants>$(DefineConstants);PORTABLE;NO_THREADS;NEW_REFLECTION;SYS_RUNTIME;DOTNET</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' or '$(TargetFramework)' == 'netstandard2.0' ">
+    <DefineConstants>$(DefineConstants);LIB</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\bzip2\src\**\*.cs" LinkBase="bzip2" />
+    <None Include="..\..\BouncyCastle.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>
