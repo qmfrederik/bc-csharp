@@ -10,7 +10,7 @@
     <Copyright>Copyright (C) 2000-2017</Copyright>
     <Company>The Legion of the Bouncy Castle Inc.</Company>
     <Description>Bouncy Castle Cryptography API</Description>
-    <DebugType>embedded</DebugType>
+    <DebugType>full</DebugType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -22,6 +22,9 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' or '$(TargetFramework)' == 'netstandard2.0' ">
     <DefineConstants>$(DefineConstants);LIB</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\bzip2\src\**\*.cs" LinkBase="bzip2" />
