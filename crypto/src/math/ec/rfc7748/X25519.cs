@@ -54,7 +54,9 @@ namespace Org.BouncyCastle.Math.EC.Rfc7748
             X25519Field.Mul(z, A, z);
         }
 
+#if !NETSTANDARD1_3
         [MethodImpl(MethodImplOptions.Synchronized)]
+#endif
         public static void Precompute()
         {
             if (precompBase != null)
