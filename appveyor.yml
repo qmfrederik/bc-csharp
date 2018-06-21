@@ -1,0 +1,8 @@
+build_script:
+  - cmd: dotnet build -c Release crypto/src/CoreCompat.BouncyCastle.csproj --version-suffix r%APPVEYOR_BUILD_NUMBER%
+
+on_success:
+  - cmd: dotnet pack crypto/src/CoreCompat.BouncyCastle.csproj -c Release --version-suffix r%APPVEYOR_BUILD_NUMBER%
+
+artifacts:
+  - path: "crypto/src/bin/Release/*.nupkg"
